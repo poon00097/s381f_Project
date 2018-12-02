@@ -1,0 +1,49 @@
+<% include authmenu.ejs %>
+
+  <br>
+<div class="container">
+    <div class="row">
+		<form role="form" method="post" action="/rate" class="col-md-9 go-right" enctype="multipart/form-data" >
+			<h2>Rate Restaurant</h2>
+
+            <br>
+			<div class="field">
+      <label>Restaurant ID</label>
+			<input name="id" readonly="true" type="text" class="form-control" value="<% restaurants.forEach(function(restaurant) { %><%=restaurant.ID%><%}) %>">
+
+
+		</div>
+    <div class="field">
+      <br><label>Name</label>
+    <input name="name"  readonly="true" type="text" class="form-control" value="<%  restaurants.forEach(function(restaurant) { %><%=restaurant.Name%> <%   }) %>" required>
+
+
+  </div>
+
+
+
+<div class="field">
+<br><label>Street</label>
+<input name="Street" type="text" readonly="true" class="form-control" value="<%  restaurants.forEach(function(restaurant) { %><%= restaurant.Address.Street %> <%   }) %>">
+
+</div>
+
+<div class="field">
+<br><label>building</label>
+<input name="building" type="text" readonly="true" class="form-control" value="<%  restaurants.forEach(function(restaurant) { %><%= restaurant.Address.building %> <%   }) %>">
+
+</div>
+
+<div class="field">
+<br><label>Give a Grade</label>
+<input name="rate" type="number" min="1" max="10" class="form-control" placeholder="Give a grade between 1 to 10" requried>
+
+</div>
+
+          <br><button type="Submit" class="ts fluid btn btn-success">Sumbit</button>
+
+		</form>
+
+
+	</div>
+</div>

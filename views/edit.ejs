@@ -1,0 +1,89 @@
+<% include authmenu.ejs %>
+
+  <br>
+<div class="container">
+    <div class="row">
+		<form role="form" method="post" action="/edit" class="col-md-9 go-right" enctype="multipart/form-data" >
+			<h2>Edit Restaurant</h2>
+
+            <br>
+			<div class="field">
+      <label>Restaurant ID</label>
+			<input name="id" readonly="true" type="text" class="form-control" value="<% restaurants.forEach(function(restaurant) { %><%=restaurant.ID%><%}) %>">
+
+
+		</div>
+    <div class="field">
+      <br><label>Name</label>
+    <input name="name" type="text" class="form-control" value="<%  restaurants.forEach(function(restaurant) { %><%=restaurant.Name%> <%   }) %>" required>
+
+
+  </div>
+  <div class="field">
+  <br><label>borough</xlabel>
+  <input name="borough" type="text"   value = "<% restaurants.forEach(function(restaurant) { %><%=restaurant.borough%> <%   }) %>" class="form-control">
+
+</div>
+
+<div class="field">
+<br><label>cuisine</label>
+<input name="cuisine" type="text" class="form-control" value="<%  restaurants.forEach(function(restaurant) { %><%= restaurant.cuisine %> <%   }) %>">
+
+</div>
+
+
+<div class="field">
+<br><label>photo</label>
+<p><input name="photo" type="file"  accept="image/*">
+</div>
+
+
+<div class="field">
+<label>photo mimetype</label>
+<input name="photomimetype" readonly="true" type="text" class="form-control" value="---">
+
+</div>
+
+<div class="field">
+<br><label>Street</label>
+<input name="Street" type="text" class="form-control" value="<%  restaurants.forEach(function(restaurant) { %><%= restaurant.Address.Street %> <%   }) %>">
+
+</div>
+
+<div class="field">
+<label>building</label>
+<input name="building" type="text" class="form-control" value="<%  restaurants.forEach(function(restaurant) { %><%= restaurant.Address.building %> <%   }) %>">
+
+</div>
+
+<div class="field">
+<br><label>zipcode</label>
+<input name="zipcode" type="text" class="form-control" value="<%  restaurants.forEach(function(restaurant) { %><%= restaurant.Address.zipcode %> <%   }) %>">
+
+</div>
+
+<div class="field">
+<br><label>coord.Latitude</label>
+<input name="Latitude" type="text" class="form-control" value="<%  restaurants.forEach(function(restaurant) { %><%= restaurant.coord.Latitude %> <%   }) %>">
+
+</div>
+
+<div class="field">
+<label>coord.Longitude</label>
+<input name="Longitude" type="text" class="form-control" value="<%  restaurants.forEach(function(restaurant) { %><%= restaurant.coord.Longitude %> <%   }) %>">
+
+</div>
+
+<div class="field">
+<br><label>Owner</label>
+<input name="owner" readonly="true" type="text" class="form-control" value="<%  restaurants.forEach(function(restaurant) { %><%= restaurant.coord.owner %> <%   }) %>">
+
+
+</div>
+          <br><button type="Submit" class="ts fluid btn btn-success">Sumbit</button>
+
+		</form>
+
+
+	</div>
+</div>

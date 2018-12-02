@@ -1,0 +1,77 @@
+<% include authmenu.ejs %>
+
+  <br>
+<div class="container">
+    <div class="row">
+		<form role="form" method="post" action="/create" class="col-md-9 go-right" enctype="multipart/form-data" >
+			<h2>Create New Restaurant</h2>
+
+            <br>
+			<div class="field">
+      <label>Restaurant ID</label>
+			<input name="id" readonly="true" type="text" class="form-control" value="---">
+
+		</div>
+    <div class="field">
+    <label>Name</label>
+    <input name="name" type="text" class="form-control" required>
+  </div>
+  <div class="field">
+  <label>borough</label>
+  <input name="borough" type="text" class="form-control">
+</div>
+
+<div class="field">
+<label>cuisine</label>
+<input name="cuisine" type="text" class="form-control">
+</div>
+
+
+<div class="field">
+<label>photo</label>
+<p><input name="photo" type="file"  accept="image/*">
+</div>
+
+
+<div class="field">
+<label>photo mimetype</label>
+<input name="photomimetype" readonly="true" type="text" class="form-control" value="---">
+</div>
+
+<div class="field">
+<label>Street</label>
+<input name="Street" type="text" class="form-control">
+</div>
+
+<div class="field">
+<label>building</label>
+<input name="building" type="text" class="form-control">
+</div>
+
+<div class="field">
+<label>zipcode</label>
+<input name="zipcode" type="text" class="form-control">
+</div>
+
+<div class="field">
+<label>coord.Latitude</label>
+<input name="Latitude" type="text" class="form-control">
+</div>
+
+<div class="field">
+<label>coord.Longitude</label>
+<input   name="Longitude" type="text" class="form-control">
+</div>
+
+<div class="field">
+<label>Owner</label>
+<input   name="owner" readonly="true" type="text" class="form-control" value="---">
+
+</div>
+          <br><button type="Submit" class="ts fluid btn btn-success">Sumbit</button>
+
+		</form>
+
+
+	</div>
+</div>

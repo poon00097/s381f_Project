@@ -1,0 +1,102 @@
+<% include authmenu.ejs %>
+
+
+<br>
+
+
+<center>
+
+  <div class="col-sm-3 col-md-3">
+    <form class="navbar-form" role="form" method="POST" action="/main/search">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Key" name="Key">&nbsp&nbsp
+        <input type="text" class="form-control" placeholder="Value" name="Value">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit">Search</button>
+        </div>
+      </div>
+    </form>
+    <br>
+  </div>
+
+</center>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 my-3">
+      <div class="pull-right">
+
+      </div>
+    </div>
+  </div>
+  <div id="products" class="row view-group">
+
+    <%  restaurants.forEach(function(restaurant) { %>
+    <div class="item col-xs-4 col-lg-4">
+      <div class="thumbnail card">
+        <div class="img-event">
+          <img class="group list-group-image img-fluid" src="data:image/png;base64, <%= restaurant.photo%>" alt="" />
+        </div>
+        <div class="caption card-body">
+          <h4 class="group card-title inner list-group-item-heading">
+            Name :
+            <%= restaurant.Name %>
+          </h4>
+          <p class="group inner list-group-item-text">Name :
+            <%= restaurant.Name %>
+          </p>
+          <p class="group inner list-group-item-text">borough :
+            <%= restaurant.borough %>
+          </p>
+          <p class="group inner list-group-item-text">cuisine :
+            <%= restaurant.cuisine %>
+          </p>
+          <p class="group inner list-group-item-text">Street :
+            <%= restaurant.Address.Street %>
+          </p>
+          <p class="group inner list-group-item-text">building :
+            <%= restaurant.Address.building %>
+          </p>
+          <p class="group inner list-group-item-text">zipcode :
+            <%= restaurant.Address.zipcode %>
+          </p>
+
+          <div class="meta">
+            <div class="item" style="cursor: pointer;" onclick="window.open('main/map?lat=<%= restaurant.coord.Latitude %>&lon=<%= restaurant.coord.Longitude %>&zoom=18','mywindow');">
+              <i class="marker icon"></i>coord : [
+              <font color="#8080ff">
+                <%= restaurant.coord.Latitude %>,
+                <%= restaurant.coord.Longitude %>
+              </font>]
+
+            </div>
+          </div>
+
+          <% if(restaurant.grades[0]&&restaurant.grades[0].user == userID){ %>
+            <br><button class="btn btn-info" disabled>Already Grade!</a>
+                <%} else {%>
+                <br><button class="btn btn-info" onclick="location.href='/self/rate?id=<%= restaurant.ID %>'">Give a Grade!</a>
+                  <%}%>
+
+
+                  <div class="row">
+
+                    <div class="col-xs-12 col-md-6">
+
+                    </div>
+                  </div>
+        </div>
+      </div>
+    </div>
+    <%   }) %>
+
+
+
+
+  </div>
+</div>
+</div>
+
+
+<p> </p>
+<P> </p>
