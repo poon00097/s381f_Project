@@ -54,6 +54,11 @@ router.post('/', function(req, res, next) {
         });
 
       });
+    } else {
+      createRestaurant(req.db, upload_json, function(result) {
+        console.log("Okay restaurant created");
+          res.redirect("/main");
+        });
     }
 });
 

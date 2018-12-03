@@ -3,11 +3,22 @@ var router = express.Router();
 var expressMongoDb = require("express-mongo-db");
 var assert = require("assert");
 var url = require("url");
+var cookieParser = require("cookie-parser");
+
 
 router.use(
+  cookieParser(),
   expressMongoDb(
     "mongodb://poon:db123456@ds151382.mlab.com:51382/poon00097"
-  )
+  ),
+  // bodyParser.urlencoded({ extended: true }),
+  function(req, res, next) {
+    if (req.session.authenticated) {
+      next();
+    } else {
+      res.render("login");
+    }
+  }
 );
 
 /* GET home page. */

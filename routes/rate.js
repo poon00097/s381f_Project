@@ -4,7 +4,23 @@ var expressMongoDb = require("express-mongo-db");
 var formidable = require("formidable");
 var assert = require('assert');
 var bodyParser = require("body-parser");
+var cookieParser = require("cookie-parser");
 var fs = require("fs");
+
+router.use(
+  cookieParser(),
+  expressMongoDb(
+    "mongodb://poon:db123456@ds151382.mlab.com:51382/poon00097"
+  ),
+  // bodyParser.urlencoded({ extended: true }),
+  function(req, res, next) {
+    if (req.session.authenticated) {
+      next();
+    } else {
+      res.render("login");
+    }
+  }
+);
 
 /* GET home page. */
 router.get("/", function(req, res, next) {

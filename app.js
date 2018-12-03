@@ -20,6 +20,7 @@ var createRouter = require('./routes/create');
 var selfRouter = require('./routes/self');
 var editRouter = require('./routes/edit');
 var rateRouter = require('./routes/rate');
+var apiRouter = require('./routes/api');
 
 
 
@@ -66,6 +67,7 @@ app.use('/create',createRouter);
 app.use('/self',selfRouter);
 app.use('/edit',editRouter);
 app.use('/rate',rateRouter);
+app.use('/api',apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
