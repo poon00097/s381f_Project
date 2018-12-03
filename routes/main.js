@@ -43,6 +43,19 @@ router.post('/search', function(req, res, next) {
 
   var formData = req.body;
   var key = req.body.Key;
+
+  if (key == "Street"){
+    key = 'Address.Street';
+  } else
+  if (key == "building")
+  {
+    key = 'Address.building'
+  } else
+  if (key == "zipcode")
+  {
+    key = 'Address.zipcode'
+  }
+
   console.log(req.body.Key);
 
   var criteria = {};
