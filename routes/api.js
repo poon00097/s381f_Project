@@ -12,13 +12,6 @@ router.use(
     "mongodb://poon:db123456@ds151382.mlab.com:51382/poon00097"
   ),
   // bodyParser.urlencoded({ extended: true }),
-  function(req, res, next) {
-    if (req.session.authenticated) {
-      next();
-    } else {
-      res.render("login");
-    }
-  }
 );
 
 //POST /api/restaurant/create
@@ -64,8 +57,14 @@ router.get("/restaurant/read/borough/*", function(req, res, next) {
     res.json(restaurants);
   });
 });
+curl -X POST \
+  https://localhost:3000/api/restaurant/create \ -H 'Content-Type: application/json' \ -H 'Postman-Token: 06d9b7e9-c32e-4f34-b2de-ac4d1f72383a' \ -H 'cache-control: no-cache' \
+  -d '{
+	"name":"007",
+	"owner": "student"
+}'
 
-router.get("/restaurant/read/cuisine/*", function(req, res, next) {
+  router.get("/restaurant/read/cuisine/*", function(req, res, next) {
   console.log(req);
   var params = url.parse(req.url, true).query;
   var criteria = {};
