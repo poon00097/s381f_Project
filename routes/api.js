@@ -42,7 +42,7 @@ router.get("/restaurant/read/Name/*", function(req, res, next) {
   var params = url.parse(req.url, true).query;
   var criteria = {};
   console.log(criteria);
-  criteria.name = req.url.split("/").pop();
+  criteria.Name = req.url.split("/").pop();
   findRestaurants(req.db, criteria, function(restaurants) {
     res.json(restaurants);
   });
